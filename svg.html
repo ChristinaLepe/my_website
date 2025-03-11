@@ -33,17 +33,9 @@
             <rect x="60" y="35" width="80" height="80" fill="brown" id="square" onclick="changeSquareColor()"></rect>
         </svg>
 
-        <p>The gray triangle rotates continuously.</p>
+        <p>The gray triangle shifts to the right.</p>
         <svg width="200" height="150">
-            <polygon points="100,20 150,130 50,130" fill="darkgray" id="triangle">
-                <animateTransform 
-                    attributeName="transform"
-                    type="rotate"
-                    from="0 100 75"
-                    to="360 100 75"
-                    dur="5s"
-                    repeatCount="indefinite"/>
-            </polygon>
+            <polygon points="100,20 150,130 50,130" fill="darkgray" id="triangle" onclick="moveTriangle()"></polygon>
         </svg>
 
     </section>
@@ -57,6 +49,10 @@
 
         function changeSquareColor() {
             document.getElementById("square").setAttribute("fill", "purple");
+        }
+        function moveTriangle() {
+            let triangle = document.getElementById("triangle");
+            triangle.setAttribute("points", "150,20 200,130 100,130");
         }
     </script>
 </body>
