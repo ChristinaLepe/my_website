@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive SVG</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>SVG</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="visualizations.html">Visualization</a></li>
+                <li><a href="svg.html">SVG</a></li>
+                <li><a href="credits.html">Credits</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Interactive SVGs</h2>
+
+        <p>Click the orange circle to make it grow.</p>
+        <svg width="200" height="150">
+            <circle cx="100" cy="75" r="40" fill="orange" id="circle" onclick="growCircle()"></circle>
+        </svg>
+
+        <p>Click the brown square to change its color to purple.</p>
+        <svg width="200" height="150">
+            <rect x="60" y="35" width="80" height="80" fill="brown" id="square" onclick="changeSquareColor()"></rect>
+        </svg>
+
+        <p>The dark gray triangle rotates continuously.</p>
+        <svg width="200" height="150">
+            <polygon points="100,20 150,130 50,130" fill="darkgray" id="triangle">
+                <animateTransform 
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 100 75"
+                    to="360 100 75"
+                    dur="5s"
+                    repeatCount="indefinite"/>
+            </polygon>
+        </svg>
+
+    </section>
+
+    <script>
+        function growCircle() {
+            let circle = document.getElementById("circle");
+            let currentRadius = circle.getAttribute("r");
+            circle.setAttribute("r", parseInt(currentRadius) + 10);
+        }
+
+        function changeSquareColor() {
+            document.getElementById("square").setAttribute("fill", "purple");
+        }
+    </script>
+</body>
+</html>
